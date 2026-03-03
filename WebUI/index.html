@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="panel">
+
+    <!-- ── Header ─────────────────────────────────────────────────── -->
+    <header class="header" id="header">
+      <div class="logo-wrap">
+        <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 5C11.716 5 5 11.716 5 20s6.716 15 15 15 15-6.716 15-15S28.284 5 20 5z"
+                fill="none" stroke="#999" stroke-width="2"/>
+          <path d="M20 10C13.373 10 8 15.373 8 22s5.373 12 12 12" 
+                stroke="#888" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M20 10C26.627 10 32 15.373 32 22" 
+                stroke="#bbb" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span class="logo-text">Assistant</span>
+      </div>
+
+      <!-- context message count badge -->
+      <div class="context-badge" id="contextBadge" title="Messages in memory">
+        <span id="msgCount">0</span> in context
+      </div>
+    </header>
+
+    <!-- ── Chat area ───────────────────────────────────────────────── -->
+    <main class="chat-area" id="chatArea">
+
+      <!-- Empty state (hidden when chat starts) -->
+      <div class="empty-state" id="emptyState">
+        <svg class="empty-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="28" stroke="#ddd" stroke-width="2"/>
+          <path d="M32 16C23.163 16 16 23.163 16 32s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16z"
+                fill="none" stroke="#ccc" stroke-width="2"/>
+          <path d="M32 20C25.373 20 20 25.373 20 32" stroke="#bbb" stroke-width="3" stroke-linecap="round"/>
+          <path d="M32 20C38.627 20 44 25.373 44 32" stroke="#ddd" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <p class="empty-title">Ask me anything</p>
+        <p class="empty-sub">I can browse the web, interact with pages, and automate tasks.</p>
+      </div>
+
+      <!-- Messages injected here by JS -->
+      <div class="messages" id="messages"></div>
+
+    </main>
+
+    <!-- ── Input bar ───────────────────────────────────────────────── -->
+    <footer class="input-bar" id="inputBar">
+      <div class="input-wrap">
+        <!-- Clear memory -->
+        <button class="icon-btn clear-btn" id="clearBtn" title="Clear conversation">
+          <svg viewBox="0 0 20 20" fill="none">
+            <path d="M4 6h12M8 6V4h4v2M7 6v9a1 1 0 001 1h4a1 1 0 001-1V6H7z"
+                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <!-- Text input -->
+        <textarea
+          id="promptInput"
+          class="prompt-input"
+          placeholder="Ask anything…"
+          rows="1"
+          autocomplete="off"
+          spellcheck="false"
+        ></textarea>
+
+        <!-- Send -->
+        <button class="icon-btn send-btn" id="sendBtn" title="Send" disabled>
+          <svg viewBox="0 0 20 20" fill="none">
+            <path d="M10 3v14M3 10l7-7 7 7"
+                  stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </footer>
+
+  </div><!-- /panel -->
+
+  <script src="script.js"></script>
+</body>
+</html>
